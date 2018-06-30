@@ -20,4 +20,5 @@ Directorios:
 - Src = Contiene el codigo fuente de la libreria y dos ejemplos, bloqueante y no bloqueante
 - Proteus = Contiene los archivos para simulador Isis de proteus
 
-
+Ejemplo de calibracion
+![alt text](https://raw.githubusercontent.com/gemunet/pic-ir-nec/master/ex-calibration.png)
