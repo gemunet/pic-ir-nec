@@ -8,7 +8,7 @@
  * 
  * Descripcion:
  * En este modo se activa la interrupcion al pin defindo como NEC_IRSENSOR
- * para esperar un flanco de señal (edge up o down segun NEC_EDGE_UP), cuando se
+ * para esperar un flanco de seÃ±al (edge up o down segun NEC_EDGE_UP), cuando se
  * dispara la interrupcion se invoca al metodo nec_decode() que intenta 
  * decodificar el comando y guardarlo en la variable nec_cmd.
  * 
@@ -44,6 +44,8 @@ void __interrupt() ir_intr( void ) {
         if(nec_cmd == NEC_NO_COMMAND) { // IMPORTANTE: si esta libre la variable, buscamos otro comando
             nec_cmd = nec_decode();
         }
+        
+        char a = GPIO; // lectura obligatoria para cancelar la interrupcion
         INTCONbits.GPIF = 0; // limpia flag para recibir otra interrupcion
     }
 }
