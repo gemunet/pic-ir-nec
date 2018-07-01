@@ -64,7 +64,7 @@ struct {
  *          NEC_MOMENTARY_ON si es repeticion, 
  *          > 0 codigo del comando.
  */
-char nec_decode();
+unsigned char nec_decode();
 
 /**
  * Espera por un comando infinitamente
@@ -72,7 +72,7 @@ char nec_decode();
  *          NEC_MOMENTARY_ON si es repeticion, 
  *          > 0 codigo del comando.
  */
-char nec_wait_command();
+unsigned char nec_wait_command();
 
 #endif
 

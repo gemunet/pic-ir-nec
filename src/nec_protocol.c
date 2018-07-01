@@ -8,7 +8,7 @@
 
 #include "nec_protocol.h"
 
-char nec_decode() {
+unsigned char nec_decode() {
     nec_packet.address = 0;
     nec_packet.address_inv = 0;
     nec_packet.command = 0;
@@ -85,7 +85,7 @@ char nec_decode() {
     return nec_packet.command;
 }
 
-char nec_wait_command() {
+unsigned char nec_wait_command() {
     while(NEC_IRSENSOR != NEC_EDGE_UP); // edge up
     return nec_decode();
 }
