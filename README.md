@@ -17,7 +17,7 @@ Requerimientos:
 - Para modo no bloqueante se requiere activar interrupcion en pin
 
 Directorios:
-- Src = Contiene el codigo fuente de la libreria y dos ejemplos, bloqueante y no bloqueante
+- Src = Contiene el codigo fuente de la libreria y ejemplos de uso, bloqueante y no bloqueante
 - Proteus = Contiene los archivos para simulador Isis de proteus
 
 Ejemplo de calibracion
