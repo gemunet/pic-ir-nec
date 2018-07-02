@@ -1,5 +1,5 @@
 # pic-ir-nec
-Microchip decodificador de protocolo IR NEC (Control remoto)
+Decodificador PIC (Microchip) de protocolo IR NEC (Control remoto)
 
 Desarrollado para XC8 y calibrado para PIC12F629
 
