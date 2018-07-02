@@ -79,20 +79,10 @@ void setup() {
 }
 
 // conmuta estados de luz principal
-char light_state = 0;
 void process_light() {
-    light_state = light_state < 3 ? ++light_state : 0;
-    
-    // apago luz
-    SGPIO.LIGHT = 0;
+    // conmuo la luz
+    SGPIO.LIGHT = !SGPIO.LIGHT;
     GPIO = SGPIO.port;
-    __delay_ms(10);
-    
-    if(light_state != 0) {
-        // enciendo luz
-        SGPIO.LIGHT = 1;
-        GPIO = SGPIO.port;
-    }
 }
 
 // conmuta estados de luces rgb
@@ -101,9 +91,7 @@ void process_rgb() {
     rgb_state = rgb_state < 4 ? ++rgb_state : 0;
     
     // apago rgb
-    SGPIO.LEDR = 0;
-    SGPIO.LEDG = 0;
-    SGPIO.LEDB = 0;
+    SGPIO.RGB = 0;
             
     switch(rgb_state) {
         case 1:
@@ -117,9 +105,7 @@ void process_rgb() {
             break;
         case 4:
             // enciendo rgb
-            SGPIO.LEDR = 1;
-            SGPIO.LEDG = 1;
-            SGPIO.LEDB = 1;
+            SGPIO.RGB = 1;
             break;
     }
     
@@ -129,7 +115,6 @@ void process_rgb() {
 // conmuta modos especiales
 char special_state = 0;
 void process_special() {
-    light_state = 0;
     rgb_state = 0;
     
     SGPIO.port = 0x00; // apago todo
@@ -171,12 +156,23 @@ void special_delay() {
         case 9:
             __delay_ms(1000);
             break;
+        case 10:
+            __delay_ms(2000);
+            break;
+        case 11:
+            __delay_ms(4000);
+            break;
+        case 12:
+            __delay_ms(8000);
+            break;
+        case 13:
+            __delay_ms(10000);
+            break;
     }
 }
 
 // apaga todas las luces
 void process_off() {
-    light_state = 0;
     rgb_state = 0;
     special_state = 0;
     special_delay_state = 0;
@@ -284,7 +280,7 @@ void main(void) {
                     break;
                 case 0x61: // blue btn
                     if(special_state > 0) {
-                        if(special_delay_state < 9) ++special_delay_state;
+                        if(special_delay_state < 13) ++special_delay_state;
                     } else {
                         process_light();
                     }
