@@ -11,6 +11,7 @@ Caracteristicas:
 - Modo bloqueante
 - Modo no bloqueante
 - Se puede calibrar para cualquier microcontrolador
+- Toda la calibracion y configuracion se debe realizar en el archivo nec_protocol.h
 
 Requerimientos:
 - Timer
